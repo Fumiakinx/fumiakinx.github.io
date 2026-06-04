@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fumi Game Portal</title>
+    <title>Fumi Game Portal (Local Test)</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -101,8 +101,9 @@
 
         .profile-input-wrap {
             display: flex;
-            align-items: center;
-            gap: 12px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
         }
 
         .profile-input {
@@ -228,6 +229,16 @@
             background: #2196F3;
             border-color: #2196F3;
             box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        .card-reversi:hover {
+            box-shadow: 0 20px 40px rgba(156, 39, 176, 0.1);
+            border-color: rgba(156, 39, 176, 0.3);
+        }
+        .card-reversi:hover .card-btn {
+            background: #9c27b0;
+            border-color: #9c27b0;
+            box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
         }
 
         .card-guitar:hover {
@@ -415,8 +426,8 @@
 <body>
 
     <header>
-        <h1>FUMI PORTAL</h1>
-        <div class="subtitle">プレミアム・ブラウザゲーム＆ツール・プラットフォーム</div>
+        <h1>FUMI PORTAL (LOCAL TEST)</h1>
+        <div class="subtitle">プレミアム・ブラウザゲーム＆ツール・プラットフォーム（ローカル開発環境）</div>
     </header>
 
     <!-- 🚀 ULTRA PREMIUM 100% AI DEVELOPMENT PROMOTION BANNER -->
@@ -445,15 +456,15 @@
             <span class="profile-desc">ここで設定した名前は、すべてのゲームで自動共有されます</span>
         </div>
         <div class="profile-input-wrap">
-            <span id="saveIndicator" class="save-indicator">✓ 自動保存完了</span>
             <input type="text" id="globalPlayerName" class="profile-input" placeholder="名前を入力してください" maxlength="10">
+            <span id="saveIndicator" class="save-indicator">✓ 自動保存完了</span>
         </div>
     </div>
 
     <!-- 🎮 ゲームコンテンツ一覧 -->
     <div class="grid">
         <!-- 1. Jigsaw -->
-        <a href="jigsaw/じぐそう/GoogleSiteEmbed.html" class="card card-jigsaw">
+        <a href="../Jigsaw/じぐそう/GoogleSiteEmbed.html" class="card card-jigsaw">
             <div class="card-icon">🧩</div>
             <div class="card-title">じぐそう (Jigsaw Puzzle)</div>
             <div class="card-desc">お気に入りの画像を美しいジグソーパズルに自動分割。立体ベベルシェーダーとリアルなドロップシャドウが織りなす、極上のパズル体験。</div>
@@ -461,24 +472,32 @@
         </a>
 
         <!-- 2. Sudoku -->
-        <a href="sudoku/WebGLBuilds/Sudoku/index.html" class="card card-sudoku">
+        <a href="https://fumiakinx.github.io/sudoku/WebGLBuilds/Sudoku/index.html" class="card card-sudoku">
             <div class="card-icon">🔢</div>
-            <div class="card-title">数独 (Sudoku Classic)</div>
+            <div class="card-title">すうどく (Sudoku Classic)</div>
             <div class="card-desc">シンプルで洗練されたデザイン。4つの難易度とインテリジェント・ベゼルによる極めて高い操作性を実現した数独ゲーム。</div>
             <div class="card-btn">数独を遊ぶ ➔</div>
         </a>
 
-        <!-- 3. Guitar Tab Editor -->
-        <a href="guitar-tab/index.html" class="card card-guitar">
+        <!-- 3. Reversi -->
+        <a href="https://fumiakinx.github.io/Reversi/index.html" class="card card-reversi">
+            <div class="card-icon">⚪⚫</div>
+            <div class="card-title">りばあし (Reversi)</div>
+            <div class="card-desc">Win95テイストのクラシックな3Dリバーシ。3つのCPU難易度と対局ログ（棋譜記録）、自動対戦デモモードを搭載。</div>
+            <div class="card-btn">リバーシを遊ぶ ➔</div>
+        </a>
+
+        <!-- 4. Guitar Tab Editor -->
+        <div class="card card-guitar" style="opacity: 0.6; cursor: not-allowed;" title="Guitar Tab Editorは別のフォルダにあります。">
             <div class="card-icon">🎸</div>
             <div class="card-title">Guitar Tab Editor</div>
-            <div class="card-desc">直感的で美しいデザインのギタータブ譜エディター。演奏と作曲、アイディアのスケッチをより快適にする高機能Webツール。</div>
-            <div class="card-btn">エディタを起動 ➔</div>
-        </a>
+            <div class="card-desc">直感的で美しいデザインのギタータブ譜エディター。演奏と作曲、アイディアのスケッチをより快適にする高機能Webツール。（※Jigsaw開発環境外）</div>
+            <div class="card-btn" style="pointer-events: none;">エディタを起動（別プロジェクト）</div>
+        </div>
     </div>
 
     <footer>
-        <div>&copy; 2026 Fumiakinx. Powered by GitHub Pages.</div>
+        <div>&copy; 2026 Fumiakinx. Local Development Test Environment.</div>
         <!-- 🛠️ COMMERCIAL STYLE TECH FOOTER BADGES -->
         <div class="footer-tech-badges">
             <div class="tech-badge">
@@ -493,13 +512,69 @@
                 <span class="tech-badge-dot dot-mcp"></span>
                 <span>Framework: MCP Systems</span>
             </div>
+            <!-- 🌟 ローカル開発用セーブデータクリアツール（debug.html）への小さなリンクバッジ -->
+            <a href="debug.html" class="tech-badge" style="text-decoration: none; border-color: rgba(244, 67, 54, 0.3); color: #f44336;">
+                <span class="tech-badge-dot" style="background: #f44336; box-shadow: 0 0 8px #f44336;"></span>
+                <span>セーブクリアツール (debug.html)</span>
+            </a>
         </div>
     </footer>
 
     <script>
+        // 🌟 数独クリア時にWebGLから呼び出されるグローバルコールバック
+        window.onSudokuComplete = async function (difficulty, elapsedTime, playerName) {
+            console.log("🏆 数独クリア！難易度:", difficulty, "タイム:", elapsedTime, "秒, プレイヤー:", playerName);
+            if (!playerName || playerName.trim() === "") return;
+            
+            const GAS_URL = "https://script.google.com/macros/s/AKfycbzIgOMcU1d9kMOfeDjmZmDFcoW8k1LIK0yZbNSCmokaFdb7JyMwa6mHKxxfkVlgaOEt/exec";
+            
+            try {
+                await fetch(`${GAS_URL}?action=add_sudoku_score&difficulty=${encodeURIComponent(difficulty)}&name=${encodeURIComponent(playerName)}&time=${elapsedTime}`, {
+                    method: 'GET',
+                    mode: 'no-cors'
+                });
+                console.log("🏆 数独ランキング送信完了！");
+            } catch (e) {
+                console.error("❌ 数独ランキング送信中にエラーが発生しました:", e);
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
             const nameInput = document.getElementById('globalPlayerName');
             const saveIndicator = document.getElementById('saveIndicator');
+
+            // ローカルテストサーバー動作時は「すうどく」と「リバーシ」のリンクをローカルのWebGLビルド相対パスに書き換える
+            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            if (isLocal) {
+                const sudokuLink = document.querySelector('.card-sudoku');
+                if (sudokuLink) {
+                    sudokuLink.href = "../Sudoku/WebGLBuilds/Sudoku/index.html";
+                }
+
+                const reversiLink = document.querySelector('.card-reversi');
+                if (reversiLink) {
+                    reversiLink.href = "../Reversi/Build/index.html";
+                }
+
+                // 🎸 ローカルテストサーバー動作時はギタータブエディターも有効化してマッピング
+                const guitarCard = document.querySelector('.card-guitar');
+                if (guitarCard) {
+                    guitarCard.style.opacity = "1";
+                    guitarCard.style.cursor = "pointer";
+                    guitarCard.title = "ローカルのギタータブ譜エディターを起動します";
+                    
+                    // カードおよび起動ボタンをクリックした時にローカルのビルドファイルを別タブで起動
+                    guitarCard.addEventListener('click', (e) => {
+                        window.open("/Fumi Guitar Tab Editor/index.html", "_blank");
+                    });
+                    
+                    const btn = guitarCard.querySelector('.card-btn');
+                    if (btn) {
+                        btn.style.pointerEvents = "auto";
+                        btn.innerText = "エディタを起動 ➔";
+                    }
+                }
+            }
 
             // 1. ローカルストレージ（同一オリジン）から保存名を取得してバインド
             const savedName = localStorage.getItem('jigsaw_player_name');
