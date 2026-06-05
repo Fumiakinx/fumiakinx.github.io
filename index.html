@@ -464,7 +464,7 @@
     <!-- 🎮 ゲームコンテンツ一覧 -->
     <div class="grid">
         <!-- 1. Jigsaw -->
-        <a href="../Jigsaw/じぐそう/GoogleSiteEmbed.html" class="card card-jigsaw">
+        <a href="https://fumiakinx.github.io/jigsaw/index.html" class="card card-jigsaw">
             <div class="card-icon">🧩</div>
             <div class="card-title">じぐそう (Jigsaw Puzzle)</div>
             <div class="card-desc">お気に入りの画像を美しいジグソーパズルに自動分割。立体ベベルシェーダーとリアルなドロップシャドウが織りなす、極上のパズル体験。</div>
@@ -480,7 +480,7 @@
         </a>
 
         <!-- 3. Reversi -->
-        <a href="https://fumiakinx.github.io/Reversi/index.html" class="card card-reversi">
+        <a href="https://fumiakinx.github.io/reversi/index.html" class="card card-reversi">
             <div class="card-icon">⚪⚫</div>
             <div class="card-title">りばあし (Reversi)</div>
             <div class="card-desc">Win95テイストのクラシックな3Dリバーシ。3つのCPU難易度と対局ログ（棋譜記録）、自動対戦デモモードを搭載。</div>
@@ -543,9 +543,14 @@
             const nameInput = document.getElementById('globalPlayerName');
             const saveIndicator = document.getElementById('saveIndicator');
 
-            // ローカルテストサーバー動作時は「すうどく」と「リバーシ」のリンクをローカルのWebGLビルド相対パスに書き換える
+            // ローカルテストサーバー動作時は各リンクをローカルのWebGLビルド相対パスに書き換える
             const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
             if (isLocal) {
+                const jigsawLink = document.querySelector('.card-jigsaw');
+                if (jigsawLink) {
+                    jigsawLink.href = "../Jigsaw/index.html";
+                }
+
                 const sudokuLink = document.querySelector('.card-sudoku');
                 if (sudokuLink) {
                     sudokuLink.href = "../Sudoku/index.html";
