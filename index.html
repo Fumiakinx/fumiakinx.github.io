@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fumi Game Portal (Local Test)</title>
+    <title>Fumi Game Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -426,8 +426,8 @@
 <body>
 
     <header>
-        <h1>FUMI PORTAL (LOCAL TEST)</h1>
-        <div class="subtitle">プレミアム・ブラウザゲーム＆ツール・プラットフォーム（ローカル開発環境）</div>
+        <h1 id="portalTitle">FUMI PORTAL</h1>
+        <div class="subtitle" id="portalSubtitle">プレミアム・ブラウザゲーム＆ツール・プラットフォーム</div>
     </header>
 
     <!-- 🚀 ULTRA PREMIUM 100% AI DEVELOPMENT PROMOTION BANNER -->
@@ -480,7 +480,7 @@
         </a>
 
         <!-- 3. Reversi -->
-        <a href="https://fumiakinx.github.io/reversi/index.html" class="card card-reversi">
+        <a href="https://fumiakinx.github.io/Reversi/index.html" class="card card-reversi">
             <div class="card-icon">⚪⚫</div>
             <div class="card-title">りばあし (Reversi)</div>
             <div class="card-desc">Win95テイストのクラシックな3Dリバーシ。3つのCPU難易度と対局ログ（棋譜記録）、自動対戦デモモードを搭載。</div>
@@ -488,12 +488,12 @@
         </a>
 
         <!-- 4. Guitar Tab Editor -->
-        <div class="card card-guitar" style="opacity: 0.6; cursor: not-allowed;" title="Guitar Tab Editorは別のフォルダにあります。">
+        <a href="https://fumiakinx.github.io/Fumi-Guitar-Tab-Editor/index.html" class="card card-guitar">
             <div class="card-icon">🎸</div>
             <div class="card-title">Guitar Tab Editor</div>
-            <div class="card-desc">直感的で美しいデザインのギタータブ譜エディター。演奏と作曲、アイディアのスケッチをより快適にする高機能Webツール。（※Jigsaw開発環境外）</div>
-            <div class="card-btn" style="pointer-events: none;">エディタを起動（別プロジェクト）</div>
-        </div>
+            <div class="card-desc">直感的で美しいデザインのギタータブ譜エディター。演奏と作曲、アイディアのスケッチをより快適にする高機能Webツール。</div>
+            <div class="card-btn">エディタを起動 ➔</div>
+        </a>
     </div>
 
     <footer>
@@ -546,6 +546,12 @@
             // ローカルテストサーバー動作時は各リンクをローカルのWebGLビルド相対パスに書き換える
             const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
             if (isLocal) {
+                // タイトルの書き換え
+                const title = document.getElementById('portalTitle');
+                if (title) title.innerText = "FUMI PORTAL (LOCAL TEST)";
+                const subtitle = document.getElementById('portalSubtitle');
+                if (subtitle) subtitle.innerText = "プレミアム・ブラウザゲーム＆ツール・プラットフォーム（ローカル開発環境）";
+
                 const jigsawLink = document.querySelector('.card-jigsaw');
                 if (jigsawLink) {
                     jigsawLink.href = "../Jigsaw/index.html";
@@ -561,23 +567,10 @@
                     reversiLink.href = "../Reversi/index.html";
                 }
 
-                // 🎸 ローカルテストサーバー動作時はギタータブエディターも有効化してマッピング
-                const guitarCard = document.querySelector('.card-guitar');
-                if (guitarCard) {
-                    guitarCard.style.opacity = "1";
-                    guitarCard.style.cursor = "pointer";
-                    guitarCard.title = "ローカルのギタータブ譜エディターを起動します";
-                    
-                    // カードおよび起動ボタンをクリックした時にローカルのビルドファイルを別タブで起動
-                    guitarCard.addEventListener('click', (e) => {
-                        window.open("/Fumi Guitar Tab Editor/index.html", "_blank");
-                    });
-                    
-                    const btn = guitarCard.querySelector('.card-btn');
-                    if (btn) {
-                        btn.style.pointerEvents = "auto";
-                        btn.innerText = "エディタを起動 ➔";
-                    }
+                // 🎸 ローカルテストサーバー動作時はギタータブエディターもローカルパスにマッピング
+                const guitarLink = document.querySelector('.card-guitar');
+                if (guitarLink) {
+                    guitarLink.href = "/Fumi Guitar Tab Editor/index.html";
                 }
             }
 
