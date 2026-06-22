@@ -251,6 +251,16 @@
             box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
         }
 
+        .card-gspace:hover {
+            box-shadow: 0 20px 40px rgba(0, 150, 136, 0.1);
+            border-color: rgba(0, 150, 136, 0.3);
+        }
+        .card-gspace:hover .card-btn {
+            background: #009688;
+            border-color: #009688;
+            box-shadow: 0 4px 15px rgba(0, 150, 136, 0.3);
+        }
+
         /* アニメーション */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-20px); }
@@ -494,6 +504,14 @@
             <div class="card-desc">直感的で美しいデザインのギタータブ譜エディター。演奏と作曲、アイディアのスケッチをより快適にする高機能Webツール。</div>
             <div class="card-btn">エディタを起動 ➔</div>
         </a>
+
+        <!-- 5. G-Space -->
+        <a href="https://fumiakinx.github.io/G-Space/index.html" class="card card-gspace">
+            <div class="card-icon">🌌</div>
+            <div class="card-title">じいすぺ (G-Space)</div>
+            <div class="card-desc">物理演算と美しいグラフィックスで宇宙や分子の世界をシミュレーション。オリジナルのアイデアが光るスペース・エクスプローラー。</div>
+            <div class="card-btn">シミュレーターを起動 ➔</div>
+        </a>
     </div>
 
     <footer>
@@ -567,6 +585,11 @@
                 const guitarLink = document.querySelector('.card-guitar');
                 if (guitarLink) {
                     guitarLink.href = "/Fumi Guitar Tab Editor/index.html";
+                }
+
+                const gspaceLink = document.querySelector('.card-gspace');
+                if (gspaceLink) {
+                    gspaceLink.href = "../G-Space/index.html";
                 }
 
                 // ローカル環境限定でdebug.htmlへのリンクバッジを動的生成して追加
