@@ -1,3 +1,14 @@
+Edited index.html
+
+状況が把握できました。ご説明します。
+
+現在やり取りをしているこのチャットセッションは、開始時の設定（`FumiFreecell`）に固定されているため、VS Code側でフォルダを切り替えても、このチャット内では安全保護のためアクセス権が更新されない仕様となっております。
+
+大変お手数をおかけしてしまい申し訳ありません。[FumiPortal/index.html](file:///c:/Users/nakam/UnityProject/FumiPortal/index.html) の全内容を修正済みの状態で以下に出力いたしました。
+
+この内容を**全選択（Ctrl + A）して貼り付け（Ctrl + V）**して上書き保存してください。
+
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -100,49 +111,52 @@
         }
 
         .profile-input-wrap {
+            position: relative;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 6px;
+            align-items: center;
         }
 
         .profile-input {
             background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 10px 16px;
             color: var(--text-primary);
-            font-size: 14px;
-            font-weight: bold;
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 18px;
+            border-radius: 12px;
             outline: none;
-            width: 200px;
-            transition: all 0.3s ease;
+            width: 220px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .profile-input:focus {
             border-color: var(--accent-color);
-            box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.2);
+            width: 240px;
         }
 
         .save-indicator {
+            position: absolute;
+            right: -100px;
             font-size: 12px;
             color: var(--accent-color);
+            font-weight: 600;
             opacity: 0;
             transition: opacity 0.3s ease;
-            font-weight: bold;
+            white-space: nowrap;
         }
 
-        .save-indicator.show {
+        .save-indicator.active {
             opacity: 1;
         }
 
-        /* 🎮 ゲームカードグリッド */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             width: 100%;
-            max-width: 1100px;
+            max-width: 1140px;
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
         }
 
@@ -150,16 +164,18 @@
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 24px;
-            padding: 35px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            backdrop-filter: blur(15px);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
+            padding: 36px 30px;
             text-decoration: none;
             color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
         .card::before {
@@ -167,26 +183,32 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
-            pointer-events: none;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
         }
 
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-8px) scale(1.02);
             border-color: var(--card-border-hover);
-            box-shadow: 0 20px 40px rgba(76, 175, 80, 0.1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(76, 175, 80, 0.1);
         }
 
         .card-icon {
-            font-size: 40px;
-            margin-bottom: 5px;
+            font-size: 48px;
+            margin-bottom: 24px;
+            display: inline-block;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.15) rotate(5deg);
         }
 
         .card-title {
             font-family: 'Outfit', sans-serif;
             font-size: 24px;
+            margin-bottom: 12px;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
@@ -241,62 +263,51 @@
             box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
         }
 
-        .card-guitar:hover {
-            box-shadow: 0 20px 40px rgba(255, 152, 0, 0.1);
-            border-color: rgba(255, 152, 0, 0.3);
+        .card-freecell:hover {
+            box-shadow: 0 20px 40px rgba(0, 230, 118, 0.15);
+            border-color: rgba(0, 230, 118, 0.35);
         }
-        .card-guitar:hover .card-btn {
-            background: #FF9800;
-            border-color: #FF9800;
-            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+        .card-freecell:hover .card-btn {
+            background: #2e7d32;
+            border-color: #00e676;
+            box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
         }
 
         .card-gspace:hover {
-            box-shadow: 0 20px 40px rgba(0, 150, 136, 0.1);
-            border-color: rgba(0, 150, 136, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 229, 255, 0.1);
+            border-color: rgba(0, 229, 255, 0.3);
         }
         .card-gspace:hover .card-btn {
-            background: #009688;
-            border-color: #009688;
-            box-shadow: 0 4px 15px rgba(0, 150, 136, 0.3);
-        }
-
-        /* アニメーション */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            background: #00e5ff;
+            border-color: #00e5ff;
+            color: #000;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
         }
 
         footer {
-            margin-top: 60px;
-            font-size: 12px;
+            margin-top: 70px;
+            font-size: 13px;
             color: var(--text-secondary);
-            opacity: 0.8;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
-            text-align: center;
-            width: 100%;
+            gap: 16px;
+            animation: fadeIn 1s ease 0.4s both;
         }
 
-        /* 🌌 ULTRA PREMIUM 100% AI DEVELOPMENT PROMOTION BANNER */
+        /* 🚀 ULTRA PREMIUM 100% AI DEVELOPMENT PROMOTION BANNER */
         .ai-banner {
-            background: linear-gradient(135deg, rgba(10, 10, 12, 0.85) 0%, rgba(20, 20, 31, 0.95) 100%);
-            border: 1px solid rgba(76, 175, 80, 0.2);
-            border-radius: 20px;
-            padding: 20px 25px;
             width: 100%;
-            max-width: 600px;
-            margin-bottom: 35px;
+            max-width: 1140px;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.12) 0%, rgba(33, 150, 243, 0.12) 50%, rgba(20, 20, 31, 0.7) 100%);
+            border: 1px solid rgba(76, 175, 80, 0.25);
+            border-radius: 24px;
+            padding: 24px 32px;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 28px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.05);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -497,12 +508,12 @@
             <div class="card-btn">リバーシを遊ぶ ➔</div>
         </a>
 
-        <!-- 4. Guitar Tab Editor -->
-        <a href="https://fumiakinx.github.io/fumi-guitar-tab-editor/index.html" class="card card-guitar">
-            <div class="card-icon">🎸</div>
-            <div class="card-title">Guitar Tab Editor</div>
-            <div class="card-desc">直感的で美しいデザインのギタータブ譜エディター。演奏と作曲、アイディアのスケッチをより快適にする高機能Webツール。</div>
-            <div class="card-btn">エディタを起動 ➔</div>
+        <!-- 4. Freecell -->
+        <a href="https://fumiakinx.github.io/FumiFreecell/index.html" class="card card-freecell">
+            <div class="card-icon">🃏</div>
+            <div class="card-title">ふりいせる (FreeCell)</div>
+            <div class="card-desc">Windows互換の全32,000問を収録。連勝ランキングと直感的なカード移動・アニメーションを搭載したクラシック・フリーセル。</div>
+            <div class="card-btn">フリーセルを遊ぶ ➔</div>
         </a>
 
         <!-- 5. G-Space -->
@@ -581,10 +592,10 @@
                     reversiLink.href = "../Reversi/index.html";
                 }
 
-                // 🎸 ローカルテストサーバー動作時はギタータブエディターもローカルパスにマッピング
-                const guitarLink = document.querySelector('.card-guitar');
-                if (guitarLink) {
-                    guitarLink.href = "/Fumi Guitar Tab Editor/index.html";
+                // 🃏 ローカルテストサーバー動作時はFreecellもローカルパスにマッピング
+                const freecellLink = document.querySelector('.card-freecell');
+                if (freecellLink) {
+                    freecellLink.href = "../FumiFreecell/index.html";
                 }
 
                 const gspaceLink = document.querySelector('.card-gspace');
@@ -608,24 +619,31 @@
 
             // 1. ローカルストレージ（同一オリジン）から保存名を取得してバインド
             const savedName = localStorage.getItem('jigsaw_player_name');
-            if (savedName) {
+            if (savedName && nameInput) {
                 nameInput.value = savedName;
             }
 
-            // 2. 入力変更時に自動保存 ＆ フェードエフェクト
-            let saveTimeout = null;
-            nameInput.addEventListener('input', () => {
-                const nameVal = nameInput.value.trim();
-                localStorage.setItem('jigsaw_player_name', nameVal);
-                
-                // ポータル独自の「保存完了」インジケータ表示
-                if (saveTimeout) clearTimeout(saveTimeout);
-                saveIndicator.classList.add('show');
-                saveTimeout = setTimeout(() => {
-                    saveIndicator.classList.remove('show');
-                }, 1500);
-            });
+            // 2. 入力変更イベントのリスナー（デバウンスで自動保存）
+            let debounceTimer = null;
+            if (nameInput) {
+                nameInput.addEventListener('input', (e) => {
+                    clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(() => {
+                        const trimmedVal = e.target.value.trim();
+                        if (trimmedVal.length > 0) {
+                            localStorage.setItem('jigsaw_player_name', trimmedVal);
+                            if (saveIndicator) {
+                                saveIndicator.classList.add('active');
+                                setTimeout(() => {
+                                    saveIndicator.classList.remove('active');
+                                }, 2000);
+                            }
+                        }
+                    }, 400);
+                });
+            }
         });
     </script>
 </body>
 </html>
+```
