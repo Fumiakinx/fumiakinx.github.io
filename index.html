@@ -262,16 +262,16 @@
             box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
         }
 
-        .card-gspace:hover {
-            box-shadow: 0 20px 40px rgba(0, 229, 255, 0.1);
-            border-color: rgba(0, 229, 255, 0.3);
+        .card-eitango:hover {
+            box-shadow: 0 20px 40px rgba(106, 176, 76, 0.15);
+            border-color: rgba(106, 176, 76, 0.35);
         }
-        .card-gspace:hover .card-btn {
-            background: #00e5ff;
-            border-color: #00e5ff;
-            color: #000;
+        .card-eitango:hover .card-btn {
+            background: linear-gradient(135deg, #6ab04c, #48b068);
+            border-color: #6ab04c;
+            color: #fff;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(106, 176, 76, 0.35);
         }
 
         footer {
@@ -505,12 +505,12 @@
             <div class="card-btn">フリーセルを遊ぶ ➔</div>
         </a>
 
-        <!-- 5. G-Space -->
-        <a href="https://fumiakinx.github.io/G-Space/index.html" class="card card-gspace">
-            <div class="card-icon">🌌</div>
-            <div class="card-title">じいすぺ (G-Space)</div>
-            <div class="card-desc">物理演算と美しいグラフィックスで宇宙や分子の世界をシミュレーション。オリジナルのアイデアが光るスペース・エクスプローラー。</div>
-            <div class="card-btn">シミュレーターを起動 ➔</div>
+        <!-- 5. Eitango -->
+        <a href="https://fumiakinx.github.io/Eitango/index.html" class="card card-eitango">
+            <div class="card-icon">🔤</div>
+            <div class="card-title">えいたん (Eitango)</div>
+            <div class="card-desc">語源解体ヒントと四択クイズで効率よく英単語をマスター。10問連続正解でサドンデス突入！連続正解ランキング搭載。</div>
+            <div class="card-btn">クイズに挑戦 ➔</div>
         </a>
     </div>
 
@@ -587,9 +587,9 @@
                     freecellLink.href = "../FumiFreecell/index.html";
                 }
 
-                const gspaceLink = document.querySelector('.card-gspace');
-                if (gspaceLink) {
-                    gspaceLink.href = "../G-Space/index.html";
+                const eitangoLink = document.querySelector('.card-eitango');
+                if (eitangoLink) {
+                    eitangoLink.href = "../Eitango/index.html";
                 }
 
                 // ローカル環境限定でdebug.htmlへのリンクバッジを動的生成して追加
