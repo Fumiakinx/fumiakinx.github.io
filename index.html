@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -266,6 +266,16 @@
             box-shadow: 0 20px 40px rgba(106, 176, 76, 0.15);
             border-color: rgba(106, 176, 76, 0.35);
         }
+                .card-jiraigen:hover {
+            box-shadow: 0 20px 40px rgba(244, 67, 54, 0.15);
+            border-color: rgba(244, 67, 54, 0.35);
+        }
+        .card-jiraigen:hover .card-btn {
+            background: #d32f2f;
+            border-color: #f44336;
+            box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+        }
+
         .card-eitango:hover .card-btn {
             background: linear-gradient(135deg, #6ab04c, #48b068);
             border-color: #6ab04c;
@@ -505,6 +515,14 @@
             <div class="card-btn">フリーセルを遊ぶ ➔</div>
         </a>
 
+        <!-- 6. Jiraigen -->
+        <a href="https://fumiakinx.github.io/Jiraigen/index.html" class="card card-jiraigen">
+            <div class="card-icon">💣</div>
+            <div class="card-title">じらいげん (Mine Puzzle)</div>
+            <div class="card-desc">サイバー＆モダンなフラットデザインで再構築された地雷探索パズル。初級・中級・上級の3つの難易度と連勝記録管理を搭載。</div>
+            <div class="card-btn">じらいげんを遊ぶ ➔</div>
+        </a>
+
         <!-- 5. Eitango -->
         <a href="https://fumiakinx.github.io/Eitango/index.html" class="card card-eitango">
             <div class="card-icon">🔤</div>
@@ -585,6 +603,11 @@
                 const freecellLink = document.querySelector('.card-freecell');
                 if (freecellLink) {
                     freecellLink.href = "../FumiFreecell/index.html";
+                }
+
+                const jiraigenLink = document.querySelector('.card-jiraigen');
+                if (jiraigenLink) {
+                    jiraigenLink.href = "../Jiraigen/index.html";
                 }
 
                 const eitangoLink = document.querySelector('.card-eitango');
