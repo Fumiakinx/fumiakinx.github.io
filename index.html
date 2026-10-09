@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -296,6 +296,18 @@
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
         }
 
+        .card-physi:hover {
+            box-shadow: 0 20px 40px rgba(0, 188, 212, 0.15);
+            border-color: rgba(0, 188, 212, 0.35);
+        }
+        .card-physi:hover .card-btn {
+            background: linear-gradient(135deg, #00bcd4, #0097a7);
+            border-color: #00bcd4;
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.35);
+        }
+
         footer {
             margin-top: 70px;
             font-size: 13px;
@@ -550,6 +562,14 @@
             <div class="card-desc">相手の駒が見えない緊迫の心理戦。実物風の駒デザインと本格思考ルーチンを備えたクラシック軍人将棋。</div>
             <div class="card-btn">軍人将棋を遊ぶ ➔</div>
         </a>
+
+        <!-- 8. PhysiNote -->
+        <a href="https://fumiakinx.github.io/PhysiNote/index.html" class="card card-physi">
+            <div class="card-icon">⚛️</div>
+            <div class="card-title">ふぃじ (PhysiNote)</div>
+            <div class="card-desc">数式の意味・単位の可視化や、化学式・回路・波形・各種図表の生成に対応した物理・科学ノートツール。（※現在作成中につき不具合がある可能性があります）</div>
+            <div class="card-btn">ノートを開く ➔</div>
+        </a>
     </div>
 
     <footer>
@@ -633,6 +653,11 @@
                 const eitangoLink = document.querySelector('.card-eitango');
                 if (eitangoLink) {
                     eitangoLink.href = "../Eitango/index.html";
+                }
+
+                const physiLink = document.querySelector('.card-physi');
+                if (physiLink) {
+                    physiLink.href = "../PhysiNote/index.html";
                 }
 
                 // ローカル環境限定でdebug.htmlへのリンクバッジを動的生成して追加
